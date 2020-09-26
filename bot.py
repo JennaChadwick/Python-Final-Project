@@ -9,6 +9,6 @@ async def on_ready():
 
 @client.command()
 async def respond(ctx):
-    await ctx.send('hello, My name is Cat the Hat')
+    await ctx.send('hello')
 
-client.run('NzU5NDYyMTM0NTc1NzkyMTI5.X292Ow.ZBd5-ZmGLZd12g97GRSO6e-FWCM')
+#client.run('NzU5NDYyMTM0NTc1NzkyMTI5.X292Ow.Q-4KaGUkST6Q_0S9xsw5o0WppYg')
