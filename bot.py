@@ -13,6 +13,6 @@ async def on_ready():
 
 @client.command()
 async def respond(ctx):
-    await ctx.send(get_some_text())
+    await ctx.send('hello')
 
 #client.run('NzU5NDYyMTM0NTc1NzkyMTI5.X292Ow.Q-4KaGUkST6Q_0S9xsw5o0WppYg')
