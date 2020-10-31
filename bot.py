@@ -20,6 +20,6 @@ async def on_ready():
 
 @client.command()
 async def respond(ctx):
-    await ctx.send('hello #2')
+    await ctx.send('hello number 2')
 
 client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
