@@ -1,6 +1,13 @@
 import discord
 from discord.ext import commands
 
+# Imports
+from dotenv import load_dotenv
+import os
+
+# Credentials
+load_dotenv('.env')
+
 def get_some_text():
     f = open(testText.txt, "r")
     return f
@@ -15,4 +22,4 @@ async def on_ready():
 async def respond(ctx):
     await ctx.send('hello')
 
-#client.run('NzU5NDYyMTM0NTc1NzkyMTI5.X292Ow.Q-4KaGUkST6Q_0S9xsw5o0WppYg')
+client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
