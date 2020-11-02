@@ -21,7 +21,7 @@ async def on_ready():
 
 @client.command()
 async def respond(ctx):
-    await ctx.send('hello #5')
+    await ctx.send('hello #6')
 
 @client.command()
 async def test(ctx):
