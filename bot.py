@@ -9,7 +9,7 @@ import os
 load_dotenv('.env')
 
 def get_some_text():
-    f = open(testText.txt, "r")
+    f = open('testText.txt', "r")
     f.close()
     return f
 
@@ -25,6 +25,6 @@ async def respond(ctx):
 
 @client.command()
 async def test(ctx):
-    await ctx.send('test')
+    await ctx.send(get_some_text())
 
 client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
