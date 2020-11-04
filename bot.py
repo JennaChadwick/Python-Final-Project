@@ -33,4 +33,8 @@ async def respond(ctx):
 async def test(ctx):
     await ctx.send(get_some_text())
 
+@client.command()
+async def testWrite(ctx):
+    write_some_text()
+
 client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
