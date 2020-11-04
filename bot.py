@@ -10,8 +10,14 @@ load_dotenv('.env')
 
 def get_some_text():
     f = open('testText.txt', "r")
+    text = f.readlines()
     f.close()
-    return f
+    return text
+
+def write_some_text():
+    f = open('testText.txt', "a")
+    f.write("\nExtra Line")
+    f.close()
 
 client= commands.Bot(command_prefix = '.')
 
