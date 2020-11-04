@@ -27,7 +27,7 @@ async def on_ready():
 
 @client.command()
 async def respond(ctx):
-    await ctx.send('hello #8')
+    await ctx.send('Never gonna give you up\nNever gonna let you donw\nNever gonna run around\nAnd hurt you')
 
 @client.command()
 async def test(ctx):
