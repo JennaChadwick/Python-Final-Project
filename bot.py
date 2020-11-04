@@ -10,7 +10,6 @@ load_dotenv('.env')
 
 def get_some_text():
     f = open('testText.txt', "r")
-    print(f.read())
     f.close()
     return f
 
