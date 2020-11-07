@@ -61,10 +61,7 @@ async def userRead(ctx, user):
     await ctx.send(read_user_profile(user))
 
 
-# To enter .userName command for bot to grab a Discord username
-@client.command()
-async def userName(ctx):
-    await ctx.send()
+
 
 # Discord Bot token
 
