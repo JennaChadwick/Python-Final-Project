@@ -55,10 +55,14 @@ async def testWrite(ctx):
     write_some_text()
 
 
-
+# To enter .userRead to read the Discord username from userInfo Text file
 @client.command()
 async def userRead(ctx, user):
     await ctx.send(read_user_profile(user))
+
+
+
+
 
 
 
