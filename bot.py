@@ -57,8 +57,8 @@ async def testWrite(ctx):
 
 
 @client.command()
-async def userRead(ctx):
-    await ctx.send(read_user_profile('Jeb'))
+async def userRead(ctx, user):
+    await ctx.send(read_user_profile(user))
 
 
 # To enter .userName command for bot to grab a Discord username
