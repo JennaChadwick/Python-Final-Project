@@ -92,11 +92,6 @@ async def time(ctx):
 
 
 
-
-
-
-
-
 # Discord Bot token
 
 client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
