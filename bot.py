@@ -5,6 +5,7 @@ from discord.ext import commands
 from dotenv import load_dotenv
 import os
 import re
+import datetime
 
 # Credentials
 load_dotenv('.env')
@@ -73,6 +74,12 @@ async def userRead(ctx):
 @client.command()
 async def userName(ctx):
     await ctx.send(str(ctx.author.id))
+
+
+# To enter .time to print the current time
+@client.command()
+async def time(ctx):
+    await ctx.send(str(datetime.datetime.utcnow()))
 
 
 
