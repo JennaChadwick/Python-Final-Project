@@ -52,7 +52,7 @@ async def testWrite(ctx):
 
 
 @client.command()
-async def userRead(ctx):
-    await ctx.send(read_user_profile('Jeb'))
+async def userRead(ctx, user):
+    await ctx.send(read_user_profile(user))
 
 client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
