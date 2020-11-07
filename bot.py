@@ -79,7 +79,7 @@ async def userName(ctx):
 # To enter .time to print the current time
 @client.command()
 async def time(ctx):
-    await ctx.send(str(datetime.datetime.utcnow()))
+    await ctx.send(write_some_text(str(datetime.datetime.utcnow())))
 
 
 
