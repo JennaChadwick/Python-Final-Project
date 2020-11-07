@@ -80,7 +80,7 @@ async def userName(ctx):
 @client.command()
 async def time(ctx):
     await ctx.send(str(datetime.datetime.utcnow()))
-
+    await ctx.send(str(ctx.author.id))
 
 
 
