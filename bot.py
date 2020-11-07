@@ -35,6 +35,12 @@ def read_user_profile(username):
     return 'No User Specified'
 
 
+def write_id_time(userID, time):
+    f = open('usertime.txt', "w")
+    f.write(str(userID) + str(time))
+    f.close()
+
+
 
 
 # . command line for running the bot
@@ -80,7 +86,14 @@ async def userName(ctx):
 @client.command()
 async def time(ctx):
     await ctx.send(str(datetime.datetime.utcnow()))
+<<<<<<< HEAD
     await ctx.send(str(ctx.author.id))
+=======
+    write_id_time(ctx.author.id, datetime.datetime.utcnow())
+
+
+
+>>>>>>> 30e6ed2fffb083e0a267fb45f8dbddcb87b0aa99
 
 
 
