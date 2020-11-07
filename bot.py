@@ -65,8 +65,14 @@ async def testWrite(ctx):
 
 # To enter .userRead to read the Discord username from userInfo Text file
 @client.command()
-async def userRead(ctx, user):
-    await ctx.send(read_user_profile(user))
+async def userRead(ctx):
+    await ctx.send(read_user_profile(str(ctx.author.id)))
+
+
+# To enter .userName to print one's username
+@client.command()
+async def userName(ctx):
+    await ctx.send(str(ctx.author.id))
 
 
 
