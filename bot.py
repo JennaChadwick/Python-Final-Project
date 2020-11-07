@@ -50,7 +50,7 @@ async def on_ready():
 # To enter .respond command for bot to respond to USER
 @client.command()
 async def respond(ctx):
-    await ctx.send('Never gonna give you up\nNever gonna let you donw\nNever gonna run around\nAnd hurt you')
+    await ctx.send('Welcome to the Cat Scavenger Game !/n Please enter the .readUser and enter your name')
 
 # To enter a .test command for bot to write to load a text file
 @client.command()
