@@ -33,8 +33,14 @@ def read_user_profile(username):
             return l
     return 'No User Specified'
 
+
+
+
 # . command line for running the bot
 client= commands.Bot(command_prefix = '.')
+
+
+
 
 # To turn on the Discord Bot
 @client.event
