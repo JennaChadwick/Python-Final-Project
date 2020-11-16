@@ -59,6 +59,14 @@ def random_item(fname):
 print(random_item(''))
 '''
 
+def decide_if_junk(luck):
+    comp = random.randint(1, 110)
+    if comp >= 70 - (luck * 3):
+        return 'treasure'
+    else:
+        return 'junk'
+
+
 
 
 # . command line for running the bot
@@ -108,6 +116,9 @@ async def time(ctx):
     write_id_time(ctx.author.id, datetime.datetime.utcnow())
 
 
+@client.command()
+async def isJunk(ctx):
+    await ctx.send(decide_if_junk(0))
 
 
 # Discord Bot token
