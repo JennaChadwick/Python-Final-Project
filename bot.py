@@ -42,8 +42,8 @@ def write_id_time(userID, time):
     f.close()
 
 # Function that writes junk items to a text file
-def write_junk_item():
-    f=open('junk.txt',"w"
+def write_junk_item(isJunk):
+    f=open('junk.txt',"w")
     f.write("Junk")
     f.close())
 
@@ -58,6 +58,8 @@ def random_item(fname):
     return random.choice(item)
 print(random_item(''))
 '''
+
+
 
 def decide_if_junk(luck):
     comp = random.randint(1, 110)
