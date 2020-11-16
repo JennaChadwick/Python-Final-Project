@@ -46,9 +46,14 @@ def write_id_time(userID, time):
 
     f.close()
 
-# Function that writes junk items to a text file
+
+
+
+# Function that writes junk/treasure items to a text file
 def write_item(junk,treasure):
     f=open('items.txt',"a")
+    f.write(str(junk)+str(treasure))
+    f=open('items.txt',"w")
     f.write(str(junk)+str(treasure))
     f.close()
 
