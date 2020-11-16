@@ -54,11 +54,7 @@ def write_treasure():
     f=open("treasure.txt","r")
     print(f.readlines())
 
-  
 
-"""
-Everything after this section, I am actively working on. Please do not change these
-"""
 '''
 This function performs a simple calculation to determine if an item is junk or not
 Eventually, it will call other functions to get actual items
@@ -105,14 +101,8 @@ def checkOwner(userID, petID):
     return 'No User Specified'
 
 
-"""
-End active section
-"""
-
-
 # . command line for running the bot
 client= commands.Bot(command_prefix = '.')
-
 
 
 
