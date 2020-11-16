@@ -37,20 +37,21 @@ def read_user_profile(username):
 
 # Function that writes the user id and time to a text file
 def write_id_time(userID, time):
-    f = open('usertime.txt', "w")
+    f = open('usertime.txt', "a")
     f.write(str(userID) + str(time))
     f.close()
 
 # Function that writes junk items to a text file
-def write_junk_item(isJunk):
-    f=open('junk.txt',"w")
-    f.write("Junk")
-    f.close())
-
-# Function that writes Treasure items to a text file
-    f=open('treasure.txt',"w")
-    f.write("Treasure")
+def write_item(junk,treasure):
+    f=open('items.txt',"a")
+    f.write(str(junk)+str(treasure))
     f.close()
+
+
+
+
+
+
 
 '''   
 def random_item(fname):
