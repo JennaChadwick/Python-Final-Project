@@ -35,12 +35,29 @@ def read_user_profile(username):
             return l
     return 'No User Specified'
 
-
+# Function that writes the user id and time to a text file
 def write_id_time(userID, time):
     f = open('usertime.txt', "w")
     f.write(str(userID) + str(time))
     f.close()
 
+# Function that writes junk items to a text file
+def write_junk_item():
+    f=open('junk.txt',"w"
+    f.write("Junk")
+    f.close())
+
+# Function that writes Treasure items to a text file
+    f=open('treasure.txt',"w")
+    f.write("Treasure")
+    f.close()
+
+'''   
+def random_item(fname):
+    item = open(fname).read.splitlines()
+    return random.choice(item)
+print(random_item(''))
+'''
 
 
 
