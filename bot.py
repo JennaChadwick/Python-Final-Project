@@ -36,44 +36,17 @@ def read_user_profile(username):
     return 'No User Specified'
 
 # Function that writes the user id and time to a text file
-def write_id_time(userID, time):
+def write_junk():
+    f=open("junk.txt","a")
+    f.write("junk 1")
+    f.write("junk 2")
+    f.write("junk 3")
+    f.write("junk 4")
 
-    f = open('usertime.txt', "a")
-    f.write(str(userID) + str(time))
+    f=open("junk.txt","r")
+    print(f.read())
 
-    f = open('usertime.txt', "w")
-    f.write(str(userID) + ' ' + str(time))
-
-    f.close()
-
-
-
-
-# Function that writes junk/treasure items to a text file
-def write_items(junk, treasure):
-
-    f = open('usertime.txt', "a")
-    f.write(str(junk) + str(treasure))
-
-    f = open('usertime.txt', "w")
-    f.write(str(junk) + ' ' + str(treasure))
-
-    f.close()
-
-
-
-
-
-
-
-
-'''   
-def random_item(fname):
-    item = open(fname).read.splitlines()
-    return random.choice(item)
-print(random_item(''))
-'''
-
+  
 
 
 def decide_if_junk(luck):
