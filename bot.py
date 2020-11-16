@@ -51,7 +51,7 @@ def write_treasure():
     f.write("treasure 1\ntreasure 2\ntreasure 3\ntreasure 4")
     f.close()
 
-    f=open("treasure .txt","r")
+    f=open("treasure.txt","r")
     print(f.readlines())
 
   
