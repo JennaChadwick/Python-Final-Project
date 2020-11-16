@@ -10,4 +10,7 @@ treasure 4treasure 1
 treasure 2
 treasure 3
 >>>>>>> 6e64d35b49a1caad7973263c9ddf28dee058c0a9
+treasure 4treasure 1
+treasure 2
+treasure 3
 treasure 4

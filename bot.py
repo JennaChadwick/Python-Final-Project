@@ -54,7 +54,7 @@ def write_treasure():
     f=open("treasure.txt","r")
     print(f.readlines())
 
-<<<<<<< HEAD
+
 def get_some_junk():
     f = open('junk.txt', "r")
     junk= f.readlines()
@@ -68,6 +68,20 @@ def get_some_treasure():
     return treasure
 
 
+def rand_junk():
+    f = open('junk.txt', "r")
+    junk = f.readlines()
+    x = random.randint(1, len(junk))
+    f.close()
+    return junk[x - 1]
+
+
+def rand_treasure():
+    f = open('treasure.txt', "r")
+    treasure = f.readlines()
+    x = random.randint(1, len(treasure))
+    f.close()
+    return treasure[x - 1]
 
 
 '''
@@ -77,9 +91,9 @@ Eventually, it will call other functions to get actual items
 def decide_if_junk(luck):
     comp = random.randint(1, 110)
     if comp >= 70 - (luck * 3):
-        return 'treasure'
+        return str(rand_treasure())
     else:
-        return 'junk'
+        return str(rand_treasure())
 
 
 '''
