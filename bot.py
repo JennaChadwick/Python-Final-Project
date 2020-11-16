@@ -44,6 +44,7 @@ def write_junk():
     f=open("junk.txt","r")
     print(f.readlines())
 
+
 # Function that writes junk items to a text file
 def write_treasure():
     f=open("treasure.txt","a")
