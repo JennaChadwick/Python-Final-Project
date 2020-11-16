@@ -54,7 +54,7 @@ def write_treasure():
     f=open("treasure.txt","r")
     print(f.readlines())
 
-<<<<<<< HEAD
+
 def get_some_junk():
     f = open('junk.txt', "r")
     junk= f.readlines()
