@@ -48,7 +48,9 @@ def write_junk():
 
   
 
-
+"""
+Everything after this section, I am actively working on. Please do not change these
+"""
 def decide_if_junk(luck):
     comp = random.randint(1, 110)
     if comp >= 70 - (luck * 3):
@@ -67,7 +69,9 @@ def get_luck(userID):
             return l[19:20]
     return 'No User Specified'
 
-
+"""
+End active section
+"""
 
 
 # . command line for running the bot
@@ -114,11 +118,12 @@ async def userName(ctx):
 async def time(ctx):
     await ctx.send(str(datetime.datetime.utcnow()))
     await ctx.send(str(ctx.author.id))
-    write_id_time(ctx.author.id, datetime.datetime.utcnow())
+    # write_id_time(ctx.author.id, datetime.datetime.utcnow())
 
 
 @client.command()
-async def isJunk(ctx):
+async def isJunk(ctx, arg):
+    petID = arg
     await ctx.send(decide_if_junk(0))
     await ctx.send(get_luck(ctx.author.id))
 
