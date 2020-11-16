@@ -183,12 +183,13 @@ async def isJunk(ctx, arg):
         await ctx.send(decide_if_junk(get_luck(petID)))
         await ctx.send(str(petID))
 
-
+# .Junk command to print junk items
 @client.command()
 async def Junk(ctx):
     await ctx.send(get_some_junk())
     print(write_junk())
 
+#.Treasure command to print treasure items
 @client.command()
 async def Treasure(ctx):
     await ctx.send(get_some_treasure())
