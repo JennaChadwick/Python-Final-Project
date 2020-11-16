@@ -59,15 +59,32 @@ def decide_if_junk(luck):
         return 'junk'
 
 
-def get_luck(userID):
+def get_luck(petID):
+    f = open('pets.txt', "r")
+    text = f.readlines()
+    f.close()
+    petReg = re.compile(petID)
+    for l in text:
+        if petReg.search(l):
+            return l[5:7]
+    return 'No Pet Specified'
+
+
+def checkOwner(userID, petID):
     f = open('userInfo.txt', "r")
     text = f.readlines()
     f.close()
     userReg = re.compile(userID)
+    petReg = re.compile(petID)
     for l in text:
         if userReg.search(l):
-            return l[19:20]
+            if petReg.search(l):
+                return petID
+            else:
+                return 'You do not own that pet.'
+
     return 'No User Specified'
+
 
 """
 End active section
@@ -123,9 +140,12 @@ async def time(ctx):
 
 @client.command()
 async def isJunk(ctx, arg):
-    petID = arg
-    await ctx.send(decide_if_junk(0))
-    await ctx.send(get_luck(ctx.author.id))
+    petID = checkOwner(str(ctx.author.id), arg)
+    if petID == 'You do not own that pet.':
+        await ctx.send('You do not own that pet.')
+    else:
+        await ctx.send(decide_if_junk(get_luck(petID)))
+        await ctx.send(petID)
 
 
 # Discord Bot token
