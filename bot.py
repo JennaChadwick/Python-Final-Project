@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 import os
 import re
 import datetime
+import random
 
 # Credentials
 load_dotenv('.env')
