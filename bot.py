@@ -54,6 +54,17 @@ def write_treasure():
     f=open("treasure.txt","r")
     print(f.readlines())
 
+def get_some_junk():
+    f = open('junk.txt', "r")
+    junk= f.readlines()
+    f.close()
+    return junk
+
+def get_some_treasure():
+    f = open('treasure.txt', "r")
+    treasure = f.readlines()
+    f.close()
+    return treasure
   
 
 """
@@ -175,11 +186,13 @@ async def isJunk(ctx, arg):
 
 @client.command()
 async def Junk(ctx):
-    write_junk()
+    await ctx.send(get_some_junk())
+    print(write_junk())
 
 @client.command()
 async def Treasure(ctx):
-    write_treasure()
+    await ctx.send(get_some_treasure())
+    print(write_treasure())
 
 
 
