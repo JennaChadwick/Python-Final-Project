@@ -54,6 +54,7 @@ def write_treasure():
     f=open("treasure.txt","r")
     print(f.readlines())
 
+<<<<<<< HEAD
 def get_some_junk():
     f = open('junk.txt', "r")
     junk= f.readlines()
@@ -65,11 +66,10 @@ def get_some_treasure():
     treasure = f.readlines()
     f.close()
     return treasure
-  
 
-"""
-Everything after this section, I am actively working on. Please do not change these
-"""
+
+
+
 '''
 This function performs a simple calculation to determine if an item is junk or not
 Eventually, it will call other functions to get actual items
@@ -97,7 +97,7 @@ def get_luck(petID):
 
 
 '''
-This function checks if the petID provided is found on the same line 
+This function checks if the petID provided is found on the same line
 as the userID provided, indicating ownership
 '''
 def checkOwner(userID, petID):
@@ -116,14 +116,8 @@ def checkOwner(userID, petID):
     return 'No User Specified'
 
 
-"""
-End active section
-"""
-
-
 # . command line for running the bot
 client= commands.Bot(command_prefix = '.')
-
 
 
 
