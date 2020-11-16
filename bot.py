@@ -59,6 +59,10 @@ def write_treasure():
 """
 Everything after this section, I am actively working on. Please do not change these
 """
+'''
+This function performs a simple calculation to determine if an item is junk or not
+Eventually, it will call other functions to get actual items
+'''
 def decide_if_junk(luck):
     comp = random.randint(1, 110)
     if comp >= 70 - (luck * 3):
@@ -67,6 +71,9 @@ def decide_if_junk(luck):
         return 'junk'
 
 
+'''
+This function reads the luck value of the pet with the provided id
+'''
 def get_luck(petID):
     f = open('pets.txt', "r")
     text = f.readlines()
@@ -78,6 +85,10 @@ def get_luck(petID):
     return 'No Pet Specified'
 
 
+'''
+This function checks if the petID provided is found on the same line 
+as the userID provided, indicating ownership
+'''
 def checkOwner(userID, petID):
     f = open('userInfo.txt', "r")
     text = f.readlines()
@@ -146,6 +157,12 @@ async def time(ctx):
     # write_id_time(ctx.author.id, datetime.datetime.utcnow())
 
 
+'''
+This command takes one argument, in the format #xxxx
+It then uses that as a pet ID, checks to make sure you own the pet,
+and determines the luck of the pet. It then rolls to see if you get a junk
+or treasure item
+'''
 @client.command()
 async def isJunk(ctx, arg):
     petID = checkOwner(str(ctx.author.id), str(arg))
