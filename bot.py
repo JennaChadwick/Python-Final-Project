@@ -37,8 +37,13 @@ def read_user_profile(username):
 
 # Function that writes the user id and time to a text file
 def write_id_time(userID, time):
+
     f = open('usertime.txt', "a")
     f.write(str(userID) + str(time))
+
+    f = open('usertime.txt', "w")
+    f.write(str(userID) + ' ' + str(time))
+
     f.close()
 
 # Function that writes junk items to a text file
@@ -68,6 +73,17 @@ def decide_if_junk(luck):
         return 'treasure'
     else:
         return 'junk'
+
+
+def get_luck(userID):
+    f = open('userInfo.txt', "r")
+    text = f.readlines()
+    f.close()
+    userReg = re.compile(userID)
+    for l in text:
+        if userReg.search(l):
+            return l[19:20]
+    return 'No User Specified'
 
 
 
@@ -122,6 +138,7 @@ async def time(ctx):
 @client.command()
 async def isJunk(ctx):
     await ctx.send(decide_if_junk(0))
+    await ctx.send(get_luck(ctx.author.id))
 
 
 # Discord Bot token
