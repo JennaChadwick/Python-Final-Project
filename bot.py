@@ -35,16 +35,23 @@ def read_user_profile(username):
             return l
     return 'No User Specified'
 
-# Function that writes the user id and time to a text file
+# Function that writes junk items to a text file
 def write_junk():
     f=open("junk.txt","a")
-    f.write("junk 1")
-    f.write("junk 2")
-    f.write("junk 3")
-    f.write("junk 4")
+    f.write("junk 1\njunk 2\njunk 3\njunk 4")
+    f.close()
 
     f=open("junk.txt","r")
-    print(f.read())
+    print(f.readlines())
+
+# Function that writes junk items to a text file
+def write_treasure():
+    f=open("treasure.txt","a")
+    f.write("treasure 1\ntreasure 2\ntreasure 3\ntreasure 4")
+    f.close()
+
+    f=open("treasure .txt","r")
+    print(f.readlines())
 
   
 
@@ -146,6 +153,16 @@ async def isJunk(ctx, arg):
     else:
         await ctx.send(decide_if_junk(get_luck(petID)))
         await ctx.send(str(petID))
+
+
+@client.command()
+async def Junk(ctx):
+    write_junk()
+
+@client.command()
+async def Treasure(ctx):
+    write_treasure()
+
 
 
 # Discord Bot token
