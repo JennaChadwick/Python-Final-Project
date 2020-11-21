@@ -89,7 +89,7 @@ def time_users(username, calltime):
             if l[27:29] == today:
                 return 'You have already called this function today'
             else:
-                text[i] = l[:19] + calltime + l[45:] + '\n'
+                text[i] = l[:19] + calltime + l[45:]
                 f = open('userInfo.txt', "w")
                 f.writelines(text)
                 f.close()
@@ -148,6 +148,44 @@ def checkOwner(userID, petID):
 
 
 '''
+Commands to add, edit, and view various files
+'''
+
+
+# The Pets file
+def edit_pets(petID, luck=0, owner=''):
+    f = open('pets.txt', "r")
+    text = f.readlines()
+    f.close()
+    petReg = re.compile(petID)
+    for (i, l) in enumerate(text):
+        if petReg.search(l):
+            text[i] = str(petID) + ' ' + str(luck)
+            f = open('userInfo.txt', "w")
+            f.writelines(text)
+            f.close()
+            return str(text[i])
+    if owner != '':
+        f = open('userInfo.txt', "r")
+        text = f.readlines()
+        f.close()
+        userReg = re.compile(owner)
+        petReg = re.compile(petID)
+        for (i, l) in enumerate(text):
+            if userReg.search(l):
+                if petReg.search(l):
+                    return 'Owner is already correct'
+                else:
+                    text[i] = text[i] + petID
+                    return 'Owner added.'
+        return 'Owner does not exist'
+    f = open('pets.txt', 'a')
+    f.write(str(petID) + ' ' + str(luck))
+    f.close()
+    return 'Pet added'
+
+
+'''
 Bot Modular commands to check user command input
 '''
 # . command line for running the bot
@@ -165,7 +203,6 @@ async def create_channel(ctx, channel_name='python-final-project'):
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
-
 
 
 # To turn on the Discord Bot
