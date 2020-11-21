@@ -161,6 +161,39 @@ def edit_pets(petID, luck=0, owner=''):
     return 'Pet added'
 
 
+# To add a new user
+def add_user(userID):
+    f = open('userInfo.txt', "a")
+    f.write(userID)
+    f.close()
+
+
+# The viewing function
+def view(file=''):
+    if file == '':
+        return 'Options: treasure, junk, pets, owners'
+    elif file == 'treasure':
+        f = open('treasure.txt', "r")
+        text = f.readlines()
+        f.close()
+        return text
+    elif file == 'junk':
+        f = open('junk.txt', "r")
+        text = f.readlines()
+        f.close()
+        return text
+    elif file == 'pets':
+        f = open('junk.txt', "r")
+        text = f.readlines()
+        f.close()
+        return text
+    elif file == 'owners':
+        f = open('userInfo.txt', "r")
+        text = f.readlines()
+        f.close()
+        return text
+
+
 '''
 Bot Modular commands to check user command input
 '''
@@ -219,6 +252,24 @@ async def isJunk(ctx, arg):
     else:
         await ctx.send(decide_if_junk(get_luck(petID)))
         await ctx.send(str(petID))
+
+
+# To edit pets. Luck and Owner are optional arguments
+@client.command()
+async def editPet(ctx, pet, luck_val=0):
+    await ctx.send(editPet(pet, luck=luck_val, owner=str(ctx.author.id)))
+
+# To add an owner
+@client.command()
+async def start(ctx):
+    await ctx.send(add_user(str(ctx.author.id)))
+
+
+# To view contents
+@client.command()
+async def view(ctx, arg):
+    await ctx.send(view(arg))
+
 
 
 
