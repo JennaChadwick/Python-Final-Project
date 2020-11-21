@@ -119,6 +119,38 @@ def checkOwner(userID, petID):
     return 'No User Specified'
 
 
+''' To edit a pet'''
+def edit(petID, luck=0, owner=''):
+    f = open('pets.txt', "r")
+    text = f.readlines()
+    f.close()
+    petReg = re.compile(petID)
+    for (i, l) in enumerate(text):
+        if petReg.search(l):
+            text[i] = str(petID) + ' ' + str(luck)
+            f = open('userInfo.txt', "w")
+            f.writelines(text)
+            f.close()
+            return str(text[i])
+        if owner != '':
+            f = open('userInfo.txt', "r")
+            text = f.readlines()
+            f.close()
+            userReg = re.compile(owner)
+            petReg = re.compile(petID)
+            for (i, l) in enumerate(text):
+                if userReg.search(l):
+                    if petReg.search(l):
+                        return 'Owner is already correct'
+                    else:
+                        text[i] = text[i] + petID
+                        return 'Owner added.'
+            return 'Owner does not exist'
+        f = open('pets.txt', 'a')
+        f.write(str(petID) + ' ' + str(luck))
+        f.close()
+        return 'Pet added'
+
 '''To add a new user'''
 def add_user(userID):
     f = open('userInfo.txt', "a")
@@ -220,7 +252,7 @@ async def isJunk(ctx, arg):
 ''' To edit pets. Luck and Owner are optional arguments '''
 @catBot.command()
 async def editPet(ctx, pet, luck_val=0):
-    await ctx.send(editPet(pet, luck=luck_val, owner=str(ctx.author.id)))
+    await ctx.send(edit(pet), luck=luck_val, owner=str(ctx.author.id))
 
 ''' To add an owner '''
 @catBot.command()
