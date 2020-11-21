@@ -1,14 +1,10 @@
+''' Imports '''
 import discord
 from discord.ext import commands
-
-# Imports
 from dotenv import load_dotenv
-import os
-import re
-import datetime
-import random
+import os, re, datetime, random
 
-# Credentials
+'''Credentials'''
 load_dotenv('.env')
 
 
@@ -123,19 +119,14 @@ def checkOwner(userID, petID):
     return 'No User Specified'
 
 
-
-''' a dot command syntax for the bot'''
-catBot = commands.Bot(command_prefix = '.')
-
-
-# To add a new user
+'''To add a new user'''
 def add_user(userID):
     f = open('userInfo.txt', "a")
     f.write(userID)
     f.close()
 
 
-# The viewing function
+'''The viewing function'''
 def view(file=''):
     if file == '':
         return 'Options: treasure, junk, pets, owners'
@@ -159,6 +150,10 @@ def view(file=''):
         text = f.readlines()
         f.close()
         return text
+
+
+''' a dot command syntax for the bot'''
+catBot = commands.Bot(command_prefix='.')
 
 
 '''
@@ -222,19 +217,19 @@ async def isJunk(ctx, arg):
         await ctx.send(str(petID))
 
 
-# To edit pets. Luck and Owner are optional arguments
-@client.command()
+''' To edit pets. Luck and Owner are optional arguments '''
+@catBot.command()
 async def editPet(ctx, pet, luck_val=0):
     await ctx.send(editPet(pet, luck=luck_val, owner=str(ctx.author.id)))
 
-# To add an owner
-@client.command()
+''' To add an owner '''
+@catBot.command()
 async def start(ctx):
     await ctx.send(add_user(str(ctx.author.id)))
 
 
-# To view contents
-@client.command()
+'''To view contents'''
+@catBot.command()
 async def view(ctx, arg):
     await ctx.send(view(arg))
 
