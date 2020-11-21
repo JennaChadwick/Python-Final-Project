@@ -127,7 +127,7 @@ def add_user(userID):
 
 
 '''The viewing function'''
-def view(file=''):
+def viewLists(file=''):
     if file == '':
         return 'Options: treasure, junk, pets, owners'
     elif file == 'treasure':
@@ -141,7 +141,7 @@ def view(file=''):
         f.close()
         return text
     elif file == 'pets':
-        f = open('junk.txt', "r")
+        f = open('pets.txt', "r")
         text = f.readlines()
         f.close()
         return text
@@ -231,7 +231,7 @@ async def start(ctx):
 '''To view contents'''
 @catBot.command()
 async def view(ctx, arg):
-    await ctx.send(view(arg))
+    await ctx.send(str(viewLists(file=str(arg))))
 
 
 
