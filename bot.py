@@ -11,18 +11,6 @@ import random
 # Credentials
 load_dotenv('.env')
 
-# Function for bot to open and read a text file
-def get_some_text():
-    f = open('testText.txt', "r")
-    text = f.readlines()
-    f.close()
-    return text
-
-# Function for bot to write to text file
-def write_some_text():
-    f = open('testText.txt', "a")
-    f.write("\nExtra Line")
-    f.close()
 
 # Function to open and read userInfo text file and search and display the username
 def read_user_profile(username):
@@ -35,18 +23,6 @@ def read_user_profile(username):
             return l
     return 'No User Specified'
 
-
-def get_some_junk():
-    f = open('junk.txt', "r")
-    junk= f.readlines()
-    f.close()
-    return junk
-
-def get_some_treasure():
-    f = open('treasure.txt', "r")
-    treasure = f.readlines()
-    f.close()
-    return treasure
 
 
 # Picks a random item from junk.txt
@@ -209,21 +185,6 @@ async def on_command_error(ctx, error):
 @client.event
 async def on_ready():
     print('Bot is ready. ')
-
-# To enter .respond command for bot to respond to USER
-@client.command()
-async def respond(ctx):
-    await ctx.send('Welcome to the Cat Scavenger Game ! \n Please enter the .readUser and enter your name')
-
-# To enter a .test command for bot to write to load a text file
-@client.command()
-async def test(ctx):
-    await ctx.send(get_some_text())
-
-# To enter .testWrite command for bot to write to a text file
-@client.command()
-async def testWrite(ctx):
-    write_some_text()
 
 
 # To enter .userRead to read the Discord username from userInfo Text file
