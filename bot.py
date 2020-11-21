@@ -68,6 +68,7 @@ def get_some_treasure():
     return treasure
 
 
+# Picks a random item from junk.txt
 def rand_junk():
     f = open('junk.txt', "r")
     junk = f.readlines()
@@ -76,6 +77,7 @@ def rand_junk():
     return junk[x - 1]
 
 
+# Picks a random item from treasure.txt
 def rand_treasure():
     f = open('treasure.txt', "r")
     treasure = f.readlines()
@@ -84,14 +86,27 @@ def rand_treasure():
     return treasure[x - 1]
 
 
+# Picks a random item from jackpot.txt
+def rand_afamiliar():
+    f = open('jackpot.txt', "r")
+    afam = f.readlines()
+    x = random.randint(1, len(afam))
+    f.close()
+    return afam[x - 1]
+
+
 '''
 This function performs a simple calculation to determine if an item is junk or not
-Eventually, it will call other functions to get actual items
+Then, it calls a function to pick a random item from junk or treasure
+If the treasure item is the jackpot (Afamiliar), it calls a third random function for that table
 '''
 def decide_if_junk(luck):
     comp = random.randint(1, 110)
     if comp >= 70 - (luck * 3):
-        return str(rand_treasure())
+        res = str(rand_treasure())
+        if res == 'Afamiliar':
+            res = str(rand_afamiliar())
+        return res
     else:
         return str(rand_treasure())
 
