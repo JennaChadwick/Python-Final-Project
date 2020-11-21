@@ -36,18 +36,6 @@ def read_user_profile(username):
     return 'No User Specified'
 
 
-def get_some_junk():
-    f = open('junk.txt', "r")
-    junk= f.readlines()
-    f.close()
-    return junk
-
-def get_some_treasure():
-    f = open('treasure.txt', "r")
-    treasure = f.readlines()
-    f.close()
-    return treasure
-
 
 # Picks a random item from junk.txt
 def rand_junk():
