@@ -145,8 +145,25 @@ def checkOwner(userID, petID):
     return 'No User Specified'
 
 
+'''
+Bot Modular commands to check user command input
+'''
 # . command line for running the bot
-client= commands.Bot(command_prefix = '.')
+bot = commands.Bot(command_prefix = '.')
+@bot.command(name='create-channel')
+@commands.has_role('admin')
+async def create_channel(ctx, channel_name='Python Final Project'):
+    guild = ctx.guild
+    existing_channel = discord.utils.get(guild.channels, name=channel_name)
+    if not existing_channel:
+        print(f'Creating a new channel: {channel_name}')
+        await guild.create_text_channel(channel_name)
+
+
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.errors.CheckFailure):
+        await ctx.send('You do not have the correct role for this command.')
 
 
 
