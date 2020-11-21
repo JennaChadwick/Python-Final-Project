@@ -149,8 +149,8 @@ def checkOwner(userID, petID):
 Bot Modular commands to check user command input
 '''
 # . command line for running the bot
-bot = commands.Bot(command_prefix = '.')
-@bot.command(name='create-channel')
+client = commands.Bot(command_prefix = '.')
+@cleint.command(name='create-channel')
 @commands.has_role('admin')
 async def create_channel(ctx, channel_name='Python Final Project'):
     guild = ctx.guild
@@ -160,7 +160,7 @@ async def create_channel(ctx, channel_name='Python Final Project'):
         await guild.create_text_channel(channel_name)
 
 
-@bot.event
+@client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
