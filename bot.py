@@ -252,7 +252,7 @@ async def isJunk(ctx, arg):
 ''' To edit pets. Luck and Owner are optional arguments '''
 @catBot.command()
 async def editPet(ctx, pet, luck_val=0):
-    await ctx.send(edit(pet), luck=luck_val, owner=str(ctx.author.id))
+    await ctx.send(edit(pet, luck=luck_val, owner=str(ctx.author.id)))
 
 ''' To add an owner '''
 @catBot.command()
