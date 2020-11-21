@@ -35,25 +35,6 @@ def read_user_profile(username):
             return l
     return 'No User Specified'
 
-# Function that writes junk items to a text file
-def write_junk():
-    f=open("junk.txt","a")
-    f.write("junk 1\njunk 2\njunk 3\njunk 4")
-    f.close()
-
-    f=open("junk.txt","r")
-    print(f.readlines())
-
-
-# Function that writes junk items to a text file
-def write_treasure():
-    f=open("treasure.txt","a")
-    f.write("treasure 1\ntreasure 2\ntreasure 3\ntreasure 4")
-    f.close()
-
-    f=open("treasure.txt","r")
-    print(f.readlines())
-
 
 def get_some_junk():
     f = open('junk.txt', "r")
@@ -159,7 +140,6 @@ async def create_channel(ctx, channel_name='Python Final Project'):
         print(f'Creating a new channel: {channel_name}')
         await guild.create_text_channel(channel_name)
 
-
 @client.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
@@ -222,18 +202,6 @@ async def isJunk(ctx, arg):
     else:
         await ctx.send(decide_if_junk(get_luck(petID)))
         await ctx.send(str(petID))
-
-# .Junk command to print junk items
-@client.command()
-async def Junk(ctx):
-    await ctx.send(get_some_junk())
-    print(write_junk())
-
-#.Treasure command to print treasure items
-@client.command()
-async def Treasure(ctx):
-    await ctx.send(get_some_treasure())
-    print(write_treasure())
 
 
 
