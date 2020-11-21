@@ -12,7 +12,7 @@ import random
 load_dotenv('.env')
 
 
-# Function to open and read userInfo text file and search and display the username
+'''Function to open and read userInfo text file and search and display the username'''
 def read_user_profile(username):
     f = open('userInfo.txt', "r")
     text = f.readlines()
@@ -25,7 +25,7 @@ def read_user_profile(username):
 
 
 
-# Picks a random item from junk.txt
+'''Picks a random item from junk.txt'''
 def rand_junk():
     f = open('junk.txt', "r")
     junk = f.readlines()
@@ -34,7 +34,7 @@ def rand_junk():
     return junk[x - 1]
 
 
-# Picks a random item from treasure.txt
+'''Picks a random item from treasure.txt'''
 def rand_treasure():
     f = open('treasure.txt', "r")
     treasure = f.readlines()
@@ -43,7 +43,7 @@ def rand_treasure():
     return treasure[x - 1]
 
 
-# Picks a random item from jackpot.txt
+'''Picks a random item from jackpot.txt'''
 def rand_afamiliar():
     f = open('jackpot.txt', "r")
     afam = f.readlines()
@@ -52,8 +52,8 @@ def rand_afamiliar():
     return afam[x - 1]
 
 
-# Checks to see if the user has called a function today. If not, allows and updates their time
-# If yes, blocks the attempt
+'''Checks to see if the user has called a function today. If not, allows and updates their time
+'''If yes, blocks the attempt
 def time_users(username, calltime):
     today = calltime[8:10]
     f = open('userInfo.txt', "r")
@@ -123,12 +123,17 @@ def checkOwner(userID, petID):
     return 'No User Specified'
 
 
+
+''' a dot command syntax for the bot'''
+catBot = commands.Bot(command_prefix = '.')
+
+
 '''
-Bot Modular commands to check user command input
+Bot Modular commands to check user command input to create channels
+for users with an admin role on Discord. If user does not have an admin role,
+it sends an error message
 '''
-# . command line for running the bot
-client = commands.Bot(command_prefix = '.')
-@client.command(name='create-channel')
+@catBot.command(name='create-channel')
 @commands.has_role('admin')
 async def create_channel(ctx, channel_name='python-final-project'):
     guild = ctx.guild
@@ -137,32 +142,32 @@ async def create_channel(ctx, channel_name='python-final-project'):
         print(f'Creating a new channel: {channel_name}')
         await guild.create_text_channel(channel_name)
 
-@client.event
+@catBot.event
 async def on_command_error(ctx, error):
     if isinstance(error, commands.errors.CheckFailure):
         await ctx.send('You do not have the correct role for this command.')
 
 
 
-# To turn on the Discord Bot
-@client.event
+'''To turn on the Discord Bot'''
+@catBot.event
 async def on_ready():
     print('Bot is ready. ')
 
 
-# To enter .userRead to read the Discord username from userInfo Text file
-@client.command()
+'''To enter .userRead to read the Discord username from userInfo Text file'''
+@catBot.command()
 async def userRead(ctx):
     await ctx.send(read_user_profile(str(ctx.author.id)))
 
 
-# To enter .userName to print one's username
-@client.command()
+'''To enter .userName to print one's username'''
+@catBot.command()
 async def userName(ctx):
     await ctx.send(str(ctx.author.id))
 
 
-# To enter .time to print the current time
+'''To enter .time to print the current time'''
 @client.command()
 async def time(ctx):
     await ctx.send(time_users(str(ctx.author.id), str(datetime.datetime.utcnow())))
@@ -174,7 +179,7 @@ It then uses that as a pet ID, checks to make sure you own the pet,
 and determines the luck of the pet. It then rolls to see if you get a junk
 or treasure item
 '''
-@client.command()
+@catBpt.command()
 async def isJunk(ctx, arg):
     petID = checkOwner(str(ctx.author.id), str(arg))
     if petID == 'You do not own that pet.':
@@ -185,6 +190,5 @@ async def isJunk(ctx, arg):
 
 
 
-# Discord Bot token
-
-client.run(os.getenv('TUTORIAL_BOT_TOKEN'))
+'''Discord Bot token'''
+catBot.run(os.getenv('TUTORIAL_BOT_TOKEN'))
