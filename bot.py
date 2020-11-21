@@ -150,7 +150,7 @@ Bot Modular commands to check user command input
 '''
 # . command line for running the bot
 client = commands.Bot(command_prefix = '.')
-@cleint.command(name='create-channel')
+@client.command(name='create-channel')
 @commands.has_role('admin')
 async def create_channel(ctx, channel_name='Python Final Project'):
     guild = ctx.guild
