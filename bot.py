@@ -128,28 +128,29 @@ def edit(petID, luck=0, owner=''):
     for (i, l) in enumerate(text):
         if petReg.search(l):
             text[i] = str(petID) + ' ' + str(luck)
-            f = open('userInfo.txt', "w")
+            f = open('pets.txt', "w")
             f.writelines(text)
             f.close()
             return str(text[i])
-        if owner != '':
-            f = open('userInfo.txt', "r")
-            text = f.readlines()
-            f.close()
-            userReg = re.compile(owner)
-            petReg = re.compile(petID)
-            for (i, l) in enumerate(text):
-                if userReg.search(l):
-                    if petReg.search(l):
-                        return 'Owner is already correct'
-                    else:
-                        text[i] = text[i] + petID
-                        return 'Owner added.'
-            return 'Owner does not exist'
-        f = open('pets.txt', 'a')
-        f.write(str(petID) + ' ' + str(luck))
+    f = open('pets.txt', 'a')
+    f.write('\n' + str(petID) + ' ' + str(luck))
+    f.close()
+    if owner != '':
+        f = open('userInfo.txt', "r")
+        text = f.readlines()
         f.close()
-        return 'Pet added'
+        userReg = re.compile(owner)
+        for (i, l) in enumerate(text):
+            if userReg.search(l):
+                if petReg.search(l):
+                    return 'Owner is already correct'
+                else:
+                    text[i] = text[i] + str(petID)
+                    f = open('userInfo.txt', 'w')
+                    f.writelines(text)
+                    f.close()
+                    return 'Owner added'
+    return 'Pet added'
 
 '''To add a new user'''
 def add_user(userID):
