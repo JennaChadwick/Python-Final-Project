@@ -11,18 +11,6 @@ import random
 # Credentials
 load_dotenv('.env')
 
-# Function for bot to open and read a text file
-def get_some_text():
-    f = open('testText.txt', "r")
-    text = f.readlines()
-    f.close()
-    return text
-
-# Function for bot to write to text file
-def write_some_text():
-    f = open('testText.txt', "a")
-    f.write("\nExtra Line")
-    f.close()
 
 # Function to open and read userInfo text file and search and display the username
 def read_user_profile(username):
