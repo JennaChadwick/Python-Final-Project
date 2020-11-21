@@ -173,21 +173,6 @@ async def on_command_error(ctx, error):
 async def on_ready():
     print('Bot is ready. ')
 
-# To enter .respond command for bot to respond to USER
-@client.command()
-async def respond(ctx):
-    await ctx.send('Welcome to the Cat Scavenger Game ! \n Please enter the .readUser and enter your name')
-
-# To enter a .test command for bot to write to load a text file
-@client.command()
-async def test(ctx):
-    await ctx.send(get_some_text())
-
-# To enter .testWrite command for bot to write to a text file
-@client.command()
-async def testWrite(ctx):
-    write_some_text()
-
 
 # To enter .userRead to read the Discord username from userInfo Text file
 @client.command()
