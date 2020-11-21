@@ -239,7 +239,5 @@ async def view(ctx, arg):
     await ctx.send(view(arg))
 
 
-
-
 '''Discord Bot token'''
 catBot.run(os.getenv('TUTORIAL_BOT_TOKEN'))
