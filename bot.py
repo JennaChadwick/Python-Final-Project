@@ -154,7 +154,7 @@ Bot Modular commands to check user command input
 client = commands.Bot(command_prefix = '.')
 @client.command(name='create-channel')
 @commands.has_role('admin')
-async def create_channel(ctx, channel_name='Python Final Project'):
+async def create_channel(ctx, channel_name='python-final-project'):
     guild = ctx.guild
     existing_channel = discord.utils.get(guild.channels, name=channel_name)
     if not existing_channel:
