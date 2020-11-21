@@ -76,6 +76,27 @@ def rand_afamiliar():
     return afam[x - 1]
 
 
+# Checks to see if the user has called a function today. If not, allows and updates their time
+# If yes, blocks the attempt
+def time_users(username, calltime):
+    today = calltime[8:10]
+    f = open('userInfo.txt', "r")
+    text = f.readlines()
+    f.close()
+    userReg = re.compile(username)
+    for (i, l) in enumerate(text):
+        if userReg.search(l):
+            if l[27:29] == today:
+                return 'You have already called this function today'
+            else:
+                text[i] = l[:19] + calltime + l[45:] + '\n'
+                f = open('userInfo.txt', "w")
+                f.writelines(text)
+                f.close()
+                return 'Updated'
+    return 'No User Specified'
+
+
 '''
 This function performs a simple calculation to determine if an item is junk or not
 Then, it calls a function to pick a random item from junk or treasure
@@ -183,9 +204,7 @@ async def userName(ctx):
 # To enter .time to print the current time
 @client.command()
 async def time(ctx):
-    await ctx.send(str(datetime.datetime.utcnow()))
-    await ctx.send(str(ctx.author.id))
-    # write_id_time(ctx.author.id, datetime.datetime.utcnow())
+    await ctx.send(time_users(str(ctx.author.id), str(datetime.datetime.utcnow())))
 
 
 '''
