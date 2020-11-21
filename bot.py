@@ -53,7 +53,7 @@ def rand_afamiliar():
 
 
 '''Checks to see if the user has called a function today. If not, allows and updates their time
-'''If yes, blocks the attempt
+If yes, blocks the attempt'''
 def time_users(username, calltime):
     today = calltime[8:10]
     f = open('userInfo.txt', "r")
@@ -168,7 +168,7 @@ async def userName(ctx):
 
 
 '''To enter .time to print the current time'''
-@client.command()
+@catBot.command()
 async def time(ctx):
     await ctx.send(time_users(str(ctx.author.id), str(datetime.datetime.utcnow())))
 
@@ -179,7 +179,7 @@ It then uses that as a pet ID, checks to make sure you own the pet,
 and determines the luck of the pet. It then rolls to see if you get a junk
 or treasure item
 '''
-@catBpt.command()
+@catBot.command()
 async def isJunk(ctx, arg):
     petID = checkOwner(str(ctx.author.id), str(arg))
     if petID == 'You do not own that pet.':
