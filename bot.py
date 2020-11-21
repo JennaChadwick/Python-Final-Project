@@ -1,14 +1,14 @@
 import discord
 from discord.ext import commands
 
-# Imports
+'''Imports'''
 from dotenv import load_dotenv
 import os
 import re
 import datetime
 import random
 
-# Credentials
+'''Credentials'''
 load_dotenv('.env')
 
 
