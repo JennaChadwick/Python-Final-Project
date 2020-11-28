@@ -154,8 +154,13 @@ def edit(petID, luck=0, owner=''):
 
 '''To add a new user'''
 def add_user(userID):
+    f = open('userInfo.txt', "r")
+    text = f.read()
+    userReg = re.compile(userID)
+    if userReg.search(text):
+        return
     f = open('userInfo.txt', "a")
-    f.write(userID)
+    f.write('\n' + str(userID))
     f.close()
 
 
