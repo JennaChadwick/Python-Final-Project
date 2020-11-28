@@ -159,32 +159,6 @@ def add_user(userID):
     f.close()
 
 
-'''The viewing function'''
-def viewLists(file=''):
-    if file == '':
-        return 'Options: treasure, junk, pets, owners'
-    elif file == 'treasure':
-        f = open('treasure.txt', "r")
-        text = f.readlines()
-        f.close()
-        return text
-    elif file == 'junk':
-        f = open('junk.txt', "r")
-        text = f.readlines()
-        f.close()
-        return text
-    elif file == 'pets':
-        f = open('pets.txt', "r")
-        text = f.readlines()
-        f.close()
-        return text
-    elif file == 'owners':
-        f = open('userInfo.txt', "r")
-        text = f.readlines()
-        f.close()
-        return text
-
-
 ''' a dot command syntax for the bot'''
 catBot = commands.Bot(command_prefix='.')
 
@@ -265,12 +239,6 @@ async def editPet(ctx, pet, luck_val=0):
 @catBot.command()
 async def start(ctx):
     await ctx.send(add_user(str(ctx.author.id)))
-
-
-'''To view contents'''
-@catBot.command()
-async def view(ctx, arg):
-    await ctx.send(str(viewLists(file=str(arg))))
 
 
 
