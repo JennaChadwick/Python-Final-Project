@@ -242,14 +242,18 @@ or treasure item
 '''
 @catBot.command()
 async def scavenge(ctx, arg):
+    # This will cause it to not accept the command if the channel is incorrect
     if ctx.channel.id != 747881675278516256:
         return
+    # dest is the destination channel, where it will send the response
+    dest = catBot.get_channel(782343771705704499)
     petID = checkOwner(str(ctx.author.id), str(arg))
     if petID == 'You do not own that pet.':
-        await ctx.send('You do not own that pet.')
+        await dest.send('You do not own that pet.')
     else:
-        await ctx.send(decide_if_junk(get_luck(petID)))
-        await ctx.send(str(petID))
+        await dest.send(decide_if_junk(get_luck(petID)))
+        await dest.send(str(petID))
+
 
 
 ''' To edit pets. Luck and Owner are optional arguments '''
