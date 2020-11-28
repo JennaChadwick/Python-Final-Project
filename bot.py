@@ -241,7 +241,7 @@ and determines the luck of the pet. It then rolls to see if you get a junk
 or treasure item
 '''
 @catBot.command()
-async def isJunk(ctx, arg):
+async def scavenge(ctx, arg):
     petID = checkOwner(str(ctx.author.id), str(arg))
     if petID == 'You do not own that pet.':
         await ctx.send('You do not own that pet.')
