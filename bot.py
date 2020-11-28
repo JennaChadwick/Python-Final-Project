@@ -235,7 +235,7 @@ async def time(ctx):
 
 
 '''
-This command takes one argument, in the format #xxxx
+This .scavenge command takes one argument, in the format #xxxx
 It then uses that as a pet ID, checks to make sure you own the pet,
 and determines the luck of the pet. It then rolls to see if you get a junk
 or treasure item
