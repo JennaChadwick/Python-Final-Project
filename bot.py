@@ -242,6 +242,8 @@ or treasure item
 '''
 @catBot.command()
 async def scavenge(ctx, arg):
+    if ctx.channel.id != 747881675278516256:
+        return
     petID = checkOwner(str(ctx.author.id), str(arg))
     if petID == 'You do not own that pet.':
         await ctx.send('You do not own that pet.')
