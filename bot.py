@@ -226,6 +226,9 @@ async def scavenge(ctx, arg):
         return
     # dest is the destination channel, where it will send the response
     dest = catBot.get_channel(782343771705704499)
+    if time_users(ctx.author.id, datetime.datetime.utcnow()) == 'You have already called this function today':
+        await dest.send('You have already called this function today')
+        return
     petID = checkOwner(str(ctx.author.id), str(arg))
     if petID == 'You do not own that pet.':
         await dest.send('You do not own that pet.')
