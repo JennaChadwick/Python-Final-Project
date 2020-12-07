@@ -162,6 +162,7 @@ def add_user(userID):
     f = open('userInfo.txt', "a")
     f.write('\n' + str(userID))
     f.close()
+    time_users(userID, datetime.datetime.utcnow())
 
 
 ''' a dot command syntax for the bot'''
@@ -223,6 +224,7 @@ or treasure item
 async def scavenge(ctx, arg):
     # This will cause it to not accept the command if the channel is incorrect
     if ctx.channel.id != 747881675278516256:
+        print('Improper channel')
         return
     # dest is the destination channel, where it will send the response
     dest = catBot.get_channel(782343771705704499)
