@@ -4,7 +4,7 @@ Python Programming - FALL 2020 CS 3080 SEC001 Jenna Chadwick and Andrew Nguyen
 
 ## General Description
   Users will interact with a Discord Bot to play a scavenger hunting game. The scavenger hunting game includes text files containing randomly hidden items: Junk or Treasure.
-  For users to play the scavenegr hunting game with the bot, the user would need to be assigned a role,'admin', in Discord by right-clicking on the channel profile and click server settings-role.
+  For users to play the scavenger hunting game with the bot, the user would need to be assigned a role,'admin', in Discord by right-clicking on the channel profile and click server settings-role.
   UserS assigned to that role can play the game with the bot. To interact with the bot, users can input pre-defined Discord commands. 
   Once users input a command, the bot will respond with a message aboout what hidden item they found.
   
