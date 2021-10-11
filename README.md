@@ -1,4 +1,4 @@
-# Python-Final-Project Discord
+# Discord Bot
 Python Programming - FALL 2020 CS 3080 SEC001 Jenna Chadwick and Andrew Nguyen
 
 
