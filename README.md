@@ -1,4 +1,4 @@
-# Python-Final-Project
+# Python-Final-Project Discord
 Python Programming - FALL 2020 CS 3080 SEC001 Jenna Chadwick and Andrew Nguyen
 
 
